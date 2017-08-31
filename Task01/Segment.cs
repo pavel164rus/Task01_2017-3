@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Task01
 {
-    class Segment
+    public class Segment
     {
         public Point FirstPoint { get; set; }
 
@@ -18,7 +18,8 @@ namespace Task01
             this.SecondPoint = secondPoint;
         }
 
-        public double Length => Math.Sqrt(Math.Pow(SecondPoint.X - FirstPoint.X, 2) + Math.Pow(SecondPoint.Y - FirstPoint.Y, 2) + Math.Pow(SecondPoint.Z - FirstPoint.Z, 2));
+        public double Length { get { return DistancePointToPoint(FirstPoint, SecondPoint); } }
+        //public double Length => Math.Sqrt(Math.Pow(SecondPoint.X - FirstPoint.X, 2) + Math.Pow(SecondPoint.Y - FirstPoint.Y, 2) + Math.Pow(SecondPoint.Z - FirstPoint.Z, 2));
 
         public double DistanceToSegment(Point point)
         {
@@ -34,7 +35,7 @@ namespace Task01
 
         private double DistancePointToPoint(Point a, Point b)
         {
-            return Math.Sqrt(Math.Pow(b.X - b.X, 2) + Math.Pow(b.Y - a.Y, 2) + Math.Pow(b.Z - a.Z, 2));
+            return Math.Sqrt(Math.Pow(b.X - a.X, 2) + Math.Pow(b.Y - a.Y, 2) + Math.Pow(b.Z - a.Z, 2));
         }
     }
 }
